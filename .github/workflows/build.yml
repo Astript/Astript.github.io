@@ -40,13 +40,9 @@ jobs:
         run: |
          npm ci
          npm run build
+         git config --global user.email "action@example.com"
+         git config --global user.name "GitHub Action"
+         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.g
+         npm run deploy 
         env:
          CI: true
-
-    # gh-pagesを使って公開
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-         ACTIONS_DEPLOY_KEY: ${{ secrets.GITHUB_TOKEN }}
-         PUBLISH_BRANCH: gh-pages
-         PUBLISH_DIR: ./build

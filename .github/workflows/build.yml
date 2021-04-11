@@ -23,7 +23,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install, build and test for app
-        working-directory: ./app
         run: |
           npm install
           npm run build
@@ -34,7 +33,6 @@ jobs:
         if: ${{ success() && github.event_name == 'push' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: ./app
         run: |
           git config --global user.email "action@example.com"
           git config --global user.name "GitHub Action"

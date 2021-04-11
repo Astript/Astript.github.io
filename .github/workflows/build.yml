@@ -10,39 +10,33 @@ on:
   pull_request:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    # node version
+  build-sample-web:
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-       node-version: ['12.x']
-       
-    # Steps represent a sequence of tasks that will be executed as part of the job
+        node-version: [14.x]
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-  # 使用するnodeのバージョンを指定
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-         node-version: ${{ matrix.node-version }}
-
-    # パッケージのインストールとアプリのビルド
-      - name: install and build
+          node-version: ${{ matrix.node-version }}
+      - name: npm install, build and test for app
+        working-directory: ./app
         run: |
-         npm ci
-         npm run build
-         git config --global user.email ${{secrets.EMAIL}}
-         git config --global user.name ${{secrets.NAME}}
-         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-         npm run deploy 
+          npm install
+          npm run build
+          npm test
         env:
-         CI: true
+          CI: true
+      - name: deploy GitHub Pages
+        if: ${{ success() && github.event_name == 'push' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: ./app
+        run: |
+          git config --global user.email "action@example.com"
+          git config --global user.name "GitHub Action"
+          git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy

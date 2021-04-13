@@ -1,0 +1,99 @@
+.box {
+    width: 100vw;
+    height: 100vh;
+}
+.box-area {
+    position: relative;
+    width: 100%;
+}
+.box-area:before{
+    content: "";
+    display: block;
+    padding-top: 5%;
+}
+@media screen and (max-width: 320px) and (max-width: 480px) {
+    .box {
+        width: 320px;
+        height: 480px;
+    }
+}
+
+.logo {
+    padding-top: 15%;
+}
+
+.subtext {
+    font-family :raleway,century gothic,sans-serif;
+    padding-top: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #999;
+    text-align: center;
+}
+@media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
+    .logo {
+        padding-top: 15%;
+        width: 600px;
+    }
+    .subtext{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
+    .logo {
+        padding-top: 60%;
+        width: 250px;
+    }
+    .subtext{
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 5px;
+    }
+}
+
+
+/*body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+/*.scroll-area {*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    overflow: auto;*/
+/*    -webkit-scroll-behavior: smooth;*/
+/*    scroll-behavior: smooth;*/
+/*    //webkit-scroll-snap-type: mandatory;*/
+/*    //scroll-snap-type: mandatory;*/
+/*    !*-webkit-scroll-snap-points-y: repeat(100%);*!*/
+/*    !*scroll-snap-points-y: repeat("100%");*!*/
+/*}*/
+/*.box {*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    color: #fff;*/
+/*    font-size: 100px;*/
+/*    display: flex;*/
+/*    align-items: center; !* 縦方向中央揃え *!*/
+/*    justify-content: center; !* 横方向中央揃え *!*/
+/*    flex-direction: column;*/
+/*}*/
+/*.box__bg_black {*/
+/*    background-color: #333;*/
+/*}*/
+/*.box__bg_gray {*/
+/*    background-color: #ccc;*/
+/*}*/
+/*.box__bg_photo {*/
+/*    background-image: url(https://mae.chab.in/wp-content/uploads/2015/09/QsjPn.jpg);*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
+/*p {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    line-height: 1;*/
+/*}*/

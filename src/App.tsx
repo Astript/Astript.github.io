@@ -23,28 +23,6 @@ const styles = createStyles({
         width: "100vw",
         height: "100vh",
     },
-    // home: {},
-    // // Theme Colors
-    // palette: {
-    //     primary: purple,
-    //     secondary: purple,
-    // },
-    // body: {
-    //     backgroundColor: "red",
-    // },
-    // // typography
-    // typography: {
-    //     //useNextVariants: true
-    // },
-    // section: {
-    //     display: "block",
-    //     background: "#CFF",
-    //     height: "100%",
-    //     width: "100%",
-    //     padding: "60px",
-    //     paddingLeft: "120px",
-    //     boxSizing: "border-box"
-    // }
 });
 
 type Props = WithStyles<typeof styles>;

@@ -35,7 +35,7 @@ class Body extends React.Component<Props, State> {
                             </Slide>
                             <div className={classes.title}>
                                 <img className={"logo"} src={logo} alt="img"/>
-                                <p className={"subtext"}>This is developed by Narange, Taku and Wiz</p>
+                                <p className={"subtext"}>This is developed by Narange, Taku</p>
                             </div>
                         </section>
                         <section className="box">
